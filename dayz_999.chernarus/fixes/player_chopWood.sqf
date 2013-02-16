@@ -14,7 +14,7 @@ _nearByTrees = 0;
 	};
 } forEach nearestObjects [getPos player, [], 30];
 
-//PartWoodPile, wrong referenced object? -Lofty
+//PartWoodPile, wrong referenced object? Or perhaps the logic for figuring out if you are in the appropriate area is faulty? Tiiiireeed nao.. -Lofty
 
 if (_nearByTrees >= 3) then {
 	_result = [player,"PartWoodPile"] call BIS_fnc_invAdd;

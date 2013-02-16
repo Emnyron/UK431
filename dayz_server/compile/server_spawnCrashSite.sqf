@@ -18,7 +18,7 @@ diag_log("CRASHSPAWNER: Starting spawn logic for Crash Spawner");
 while {true} do {
 	private["_timeAdjust","_timeToSpawn","_spawnRoll","_crash","_hasAdjustment","_newHeight","_adjustedPos"];
 	// Allows the variance to act as +/- from the spawn frequency timer
-	_timeAdjust = round(random(_variance * 2) - _variance);
+	_timeAdjust = round(random(_variance * 1) - _variance);
 	_timeToSpawn = time + _frequency + _timeAdjust;
 	
 	//Adding some Random systems
@@ -26,9 +26,9 @@ while {true} do {
 	
 	//Crash loot just uncomment the one you wish to use by default with 50cals is enabled.
 	//Table including 50 cals
-	_lootTable = ["Military","HeliCrash","MilitarySpecial"] call BIS_fnc_selectRandom;
+	//_lootTable = ["Military","HeliCrash","MilitarySpecial"] call BIS_fnc_selectRandom;
 	//Table without 50 cals
-	//_lootTable = ["Military","HeliCrash_No50s","MilitarySpecial"] call BIS_fnc_selectRandom;
+	_lootTable = ["Military","HeliCrash_No50s","MilitarySpecial"] call BIS_fnc_selectRandom;
 	
 	
 	_crashName	= getText (configFile >> "CfgVehicles" >> _crashModel >> "displayName");
@@ -37,7 +37,7 @@ while {true} do {
 
 	// Apprehensive about using one giant long sleep here given server time variances over the life of the server daemon
 	while {time < _timeToSpawn} do {
-		sleep 5;
+		sleep 2;
 	};
 
 	_spawnRoll = random 1;

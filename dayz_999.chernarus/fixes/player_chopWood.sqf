@@ -14,6 +14,8 @@ _nearByTrees = 0;
 	};
 } forEach nearestObjects [getPos player, [], 30];
 
+//PartWoodPile, wrong referenced object? -Lofty
+
 if (_nearByTrees >= 3) then {
 	_result = [player,"PartWoodPile"] call BIS_fnc_invAdd;
 	if (_result) then {
